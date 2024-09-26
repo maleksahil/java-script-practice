@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        console.log("Enter 1 for +");
+        console.log("Enter 2 for -");
+        console.log("Enter 3 for *");
+        console.log("Enter 4 for /");
+
+        function sum(a, b) {
+            let result = a + b;
+            return result;
+        }
+        function minus(a, b) {
+            let result = a - b;
+            return result;
+        }
+        function mul(a, b) {
+            let result = a * b;
+            return result;
+        }
+        function div(a, b) {
+            let result = a / b;
+            return result;
+        }
+
+        let userenter = parseFloat(prompt("enter 1 to 4 any you want= 1 for +, 2 for -, 3 for * ,4 for /"));
+
+        if (userenter == 1) {
+            let a = parseFloat(prompt("enter your  first value"));
+            let b = parseFloat(prompt("enter your  second value"));
+            console.log(sum(a, b))
+        }
+        else if (userenter == 2) {
+            let a = parseFloat(prompt("enter your  first value"));
+            let b = parseFloat(prompt("enter your  second value"));
+            console.log(minus(a, b))
+        }
+        else if (userenter == 3) {
+            let a = parseFloat(prompt("enter your  first value"));
+            let b = parseFloat(prompt("enter your  second value"));
+            console.log(mul(a, b))
+        }
+        else if (userenter == 4) {
+            let a = parseFloat(prompt("enter your  first value"));
+            let b = parseFloat(prompt("enter your  second value"));
+            console.log(div(a, b))
+        }
+        else {
+            console.log("your number is not define")
+        }
+
+    </script>
+</body>
+
+</html>
