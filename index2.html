@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculater</title>
+</head>
+
+<body>
+    <h1>calculator</h1>
+
+    <script>
+
+        function sum(a, b) {
+            let answer = a + b;
+            return answer;
+        };
+
+        function minius(a2, b2) {
+            let answer = a2 - b2;
+            return answer;
+        };
+
+        function division(a3, b3) {
+            let answer = a3 / b3;
+            return answer;
+        };
+
+        function division(a4, b4) {
+            let answer = a4 * b4;
+            return answer;
+        };
+
+        let calculater = parseFloat(prompt("enter 1 for addition, enter 2 for subtraction, enter 3 for multiplication, enter 4 for division"));
+
+        switch (calculater) {
+            case 1:
+                let a = parseFloat(prompt("enter the value of first number"));
+                let b = parseFloat(prompt("enter the value of second number"));
+                let result = sum(a, b);
+                console.log(` addition of ${a} and ${b} is : ${result}`);
+
+            case 2:
+                let a2 = parseFloat(prompt("enter the value of first number"));
+                let b2 = parseFloat(prompt("enter the value of second number"));
+                let result2 = minius(a2, b2);
+                console.log(` subtraction of ${a2} and ${b2} is : ${result2}`);
+
+            case 3:
+                let a3 = parseFloat(prompt("enter the value of first number"));
+                let b3 = parseFloat(prompt("enter the value of second number"));
+                let result3 = division(a3, b3);
+                console.log(` division of ${a3} and ${b3} is : ${result3}`);
+
+            case 4:
+                let a4 = parseFloat(prompt("enter the value of first number"));
+                let b4 = parseFloat(prompt("enter the value of second number"));
+                let result4 = division(a4, b4);
+                console.log(` division of ${a4} and ${b4} is : ${result4}`);
+
+        }
+    </script>
+
+
+</body>
+
+
+</html>
