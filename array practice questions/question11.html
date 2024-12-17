@@ -1,0 +1,16 @@
+<script>
+  // Write a JavaScript program to find the sum of squares of a numerical vector.
+
+  function sumOfSquares(vector) {
+    let sum = 0;
+    for (let i = 0; i < vector.length; i++) {
+      sum += Math.pow(vector[i], 2); // Square each element and add it to the sum
+    }
+    return sum;
+  }
+
+  // Example usage:
+  const vector = [1, 2, 3, 4];
+  const result = sumOfSquares(vector);
+  console.log("Sum of squares:", result); // Output: 30
+</script>

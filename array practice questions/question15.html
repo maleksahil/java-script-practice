@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Background Color</title>
+</head>
+<body>
+
+    <script>
+        // Step 1: Create an array of colors
+        const colors = ['#FF5733', '#33FF57', '#3357FF', '#F0E68C', '#FF1493', '#8A2BE2', '#00CED1'];
+
+        // Step 2: Generate a random index
+        const randomIndex = Math.floor(Math.random() * colors.length); // Math.random() generates a number between 0 and 1, multiply by length to get a number between 0 and colors.length - 1.
+
+        // Step 3: Change the background color of the body
+        document.body.style.backgroundColor = colors[randomIndex]; // Set the background color to the random color
+
+    </script>
+
+</body>
+</html>

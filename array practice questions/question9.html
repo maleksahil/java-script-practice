@@ -1,0 +1,29 @@
+<script>
+// <!-- Write a JavaScript program that accepts a string as input and swaps the case of each character. For example if you input 'The Quick Brown Fox' the output should be 'tHE qUICK bROWN fOX'. -->
+
+let str = 'SaHiL';
+
+// Define constants for uppercase and lowercase letters
+let UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+let LOWER = 'abcdefghijklmnopqrstuvwxyz';
+
+let result = [];
+
+for (let x = 0; x<str.length; x++){
+    if(UPPER.indexOf(str[x]) !== -1){
+        result.push(str[x].toLocaleLowerCase());
+    }
+
+    else if(LOWER.indexOf(str[x]) !== -1){
+        result.push(str[x].toLocaleUpperCase());
+    }
+
+    else{
+        result.push(str[x])
+    }
+}
+
+console.log(result.join(''))
+
+</script>
+

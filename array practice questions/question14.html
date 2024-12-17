@@ -1,0 +1,25 @@
+<script>
+function removeDuplicates(arr) {
+    // Convert all items to lowercase for case-insensitive comparison
+    let lowercasedArr = arr.map(item => item.toLowerCase()); 
+
+    // Filter out duplicates
+    let uniqueArr = lowercasedArr.filter((value, index, array) => {
+        return array.indexOf(value) === index; // Only keep first occurrence
+    });
+
+    // Map the filtered array back to the original case
+    let finalArr = uniqueArr.map(value => arr[lowercasedArr.indexOf(value)]);
+
+    return finalArr;
+}
+
+// Example usage:
+let arr = ['apple', 'banana', 'Apple', 'BANANA', 'cherry', 'apple'];
+let result = removeDuplicates(arr);
+
+console.log(result); // Output: ['apple', 'banana', 'cherry']
+
+
+
+</script>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>question 13</title>
+</head>
+<body>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            /* border: 1px solid black; */
+            display: flex;
+            width: 100vw;
+            justify-content: space-between;
+            height: auto;
+            flex-wrap: wrap;
+            margin-top: 10px;
+            padding: 20px;
+        }
+    </style>
+    
+    <input type = "number" id="getvalue" type="text">
+    <button id="add">add</button>
+    <button id="display">display</button>
+
+    <div class="container"></div>
+
+    <script>
+
+
+        let arr = [1,2,3,4,5];
+
+        let getvalue = document.getElementById('getvalue');
+        let addbtn = document.getElementById('add');
+        let display = document.getElementById('display');
+        let container = document.querySelector('.container');
+
+       addbtn.addEventListener('click',(e)=>{
+            // let p1 = document.createElement('p');
+            // p1.textContent = getvalue.value;
+
+            // constainer.appendChild(p1)
+
+
+            arr.push(Number(getvalue.value))
+            // console.log(arr)
+            // console.log(arr.length)
+ 
+
+
+       })
+
+       display.addEventListener('click', () => {
+            container.innerHTML = ''; // Clear the container before displaying the updated array
+            arr.forEach(value => {
+                let p = document.createElement('p');
+                p.textContent = value; // Set the text of the paragraph to the array value
+                container.appendChild(p); // Append the paragraph to the container
+            });
+        });
+
+ 
+
+    </script>
+</body>
+</html>
