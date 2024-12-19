@@ -1,0 +1,16 @@
+<!-- Write a JavaScript function that reverses a number. -->
+
+<script>
+  function reverse(n) {
+    // Convert the input number to a string
+    n = n + "";
+
+    // Split the string into an array of characters, reverse the array, and then join the characters back into a string
+    return n.split("").reverse().join("");
+  }
+  let arr = [1, 2, 3, 4, 5];
+
+  let result = reverse(arr);
+
+  console.log(result);
+</script>

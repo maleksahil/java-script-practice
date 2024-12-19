@@ -1,0 +1,23 @@
+<script>
+  //     Write a JavaScript function that generates all combinations of a string.
+  // Example string : 'dog'
+  // Expected Output : d,do,dog,o,og,g
+  function generateCombinations(str) {
+    const combinations = [];
+
+    // Iterate over the string with different starting points
+    for (let i = 0; i < str.length; i++) {
+      // Create substrings starting from index i to the end of the string
+      for (let j = i + 1; j <= str.length; j++) {
+        combinations.push(str.slice(i, j));
+      }
+    }
+
+    return combinations;
+  }
+
+  // Example usage:
+  const inputString = "dog";
+  const result = generateCombinations(inputString);
+  console.log(result);
+</script>
