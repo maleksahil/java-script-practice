@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MYCART</title>
+</head>
+<body>
+
+    <style>
+        #container{
+            background-color: #ccc;
+            padding: 50px;
+            font-size: 2rem;
+        }
+
+        .card{
+            background-color: white;
+            border-radius: 20px;
+            padding: 10px 50px;
+        }
+    </style>
+    
+    <div id="container">
+
+    </div>
+
+    <script>
+
+        let container = document.getElementById('container');
+
+        let result = localStorage.getItem('cart');
+
+        let data = JSON.parse(result);
+
+        console.log(result)
+
+        console.log(data)
+
+        data.forEach((val) => {
+
+            let card = document.createElement('div');
+            card.classList.add('card');
+
+
+            let p1 = document.createElement('p');
+            p1.textContent = val.name;
+
+            card.appendChild(p1)
+
+            let p2 = document.createElement('p');
+            p2.textContent = val.age;
+
+            card.appendChild(p2)
+
+            container.appendChild(card)
+
+        });
+
+    </script>
+</body>
+</html>

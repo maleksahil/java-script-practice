@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="card">
+        <img id="cardImage" src="person1.avif" alt="Initial Image">
+        <button id="changeButton">Change Image</button>
+    </div>
+
+    <script>
+        const cardImage = document.getElementById('cardImage');
+        const changeButton = document.getElementById('changeButton');
+    
+        changeButton.addEventListener('click', () => {
+         
+    
+            // Create a new image element
+            const newImage = document.createElement('img');
+            newImage.src = './person2.avif';
+            newImage.alt = 'New Image';
+    
+            // Append the new image to the card
+            cardImage.appendChild(newImage);
+        });
+    </script>
+</body>
+</html>
+

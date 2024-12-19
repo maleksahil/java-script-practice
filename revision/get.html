@@ -1,0 +1,15 @@
+<script>
+    class perosn {
+        constructor(firstname, lastname) {
+            this._firstName = firstname,
+                this._lastName = lastname
+        }
+
+        get fullName() {
+            return `${this._firstName} ${this._lastName}`
+        }
+    }
+
+    let p = new perosn("neo", "smith")
+    console.log(p.fullName)
+</script>

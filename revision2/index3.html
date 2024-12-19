@@ -1,0 +1,61 @@
+<script>
+    //set method
+
+    let students = [
+        {
+            'name':'sahil',
+            'age': 19,
+            'job': 'developer'
+        },
+        {
+            'name':'bhavesh',
+            'age': 32,
+            'job': 'developer'
+        },
+        {
+            'name':'biren',
+            'age': 23,
+            'job': 'designer'
+        },
+        {
+            'name':'chetan',
+            'age': 21,
+            'job': 'designer'
+        },
+        {
+            'name' : 'jhonny deep',
+            "age" : 59,
+            'job' : 'developer'
+        },
+        {
+            'name' : 'nicolas cage',
+            'age' : 44,
+            'job' : 'designer'
+        },
+        {
+            'name' : 'elone musk',
+            'age' : 45,
+            'job' : 'developer'
+        },
+        {
+            'name' : 'samual jeckson',
+            'age' : 89,
+            'job' : 'designer'
+        }
+
+    ];
+
+    localStorage.setItem('students',JSON.stringify(students));
+
+    let result = localStorage.getItem('students');
+
+    console.log(result)
+    console.log(JSON.parse(result))
+
+    //remove method
+
+    // localStorage.removeItem('students')
+
+
+
+</script>

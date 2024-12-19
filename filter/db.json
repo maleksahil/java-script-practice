@@ -1,0 +1,28 @@
+{
+  "user": [
+    {
+      "id": "1",
+      "name": "sahil",
+      "job": "developer",
+      "age": 19
+    },
+    {
+      "id": "2",
+      "name": "biren",
+      "job": "disigner",
+      "age": 23
+    },
+    {
+      "id": "3",
+      "name": "bhavesh",
+      "job": "developer",
+      "age": 32
+    },
+    {
+      "id": "4",
+      "name": "chetain",
+      "job": "disigner",
+      "age": 21
+    }
+  ]
+}

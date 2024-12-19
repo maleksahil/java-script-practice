@@ -1,0 +1,113 @@
+<style>
+  
+     *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+     }
+    #cart{
+        background-color: #ccc;
+        width: 100%;
+        min-height: 100vh;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
+        padding: 50px;
+        align-content: center;
+    }
+    .card {
+        padding: 10px 20px;
+        /* border: 1px solid red; */
+        background-color: wheat;
+        border-radius: 10px;
+        width: 300px;
+        height: 250px;
+        color: black;
+        font-weight: 700;
+        font-family:Arial, Helvetica, sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: start;
+        font-size: 1.5rem;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    }
+
+    button{
+        padding: 5px 10px;
+        border: none;
+        background-color: rgb(211, 123, 138);
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1.3rem;
+    }
+
+    .del {
+        position: fixed;
+        top: 10px;
+        right: 20px;
+    }
+</style>
+
+
+
+<div id="cart">
+
+</div>
+
+<button class="del" onclick="del()">Delete all</button>
+
+
+<script>
+
+    let cart = document.getElementById('cart');
+
+    let cartData = localStorage.getItem('students');
+
+    console.log(cartData);
+
+    let data = JSON.parse(cartData);
+
+    function render() {
+
+        cart.innerHTML = ""; // clean cart old value
+
+        data.forEach((val, index) => {
+
+            cart.innerHTML += `
+            <div class='card'>
+              <p> ${val.name} </p>
+              <span> ${val.age} </span>
+              <p>${val.job}</p>
+              <button onclick='remove(${index})'> Delete </button>
+            </div>
+     `
+
+        });
+    }wh
+
+    function remove(index) {
+
+        data.splice(index, 1); // delete the object of the array with given inex number
+
+        localStorage.setItem('cart', JSON.stringify(data))  //set updated data in local storage
+
+        render()//again call render function and show updated data in cards
+    }
+
+    function del() {
+
+        localStorage.clear();
+
+
+        render()
+
+    }
+
+
+    render()
+
+</script>

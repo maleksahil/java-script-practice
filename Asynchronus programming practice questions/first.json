@@ -1,0 +1,11 @@
+{
+    "name" : "harry",
+    "score" : 11.75,
+    "isAdmin" : false,
+    "licence" : null,
+    "shopitem" : ["food", "clothes", "oil"],
+    "myobj" : {
+        "color" : "red",
+        "number" : 47
+    }
+}

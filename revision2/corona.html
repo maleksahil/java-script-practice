@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>COVID-19 Cases</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  </head>
+  <body>
+    <style>
+      body {
+        background-color: aliceblue;
+        /* padding-left: 35%; */
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .info {
+        width: auto;
+        height: 60px;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      }
+
+      input{
+        height: 50px;
+        padding-left: 20px;
+        border-top-left-radius: 30px;
+        border-bottom-left-radius: 30px;
+        border: none;
+        outline: none;
+        font-size: 1.1rem;
+      }
+
+      button{
+        height: 50px;
+        border-top-right-radius: 30px;
+        border-bottom-right-radius: 30px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px 30px;
+        font-size: 1.3rem;
+        background-color: pink;
+        transition: all 0.5s ease;
+      }
+
+      button:hover{
+        background-color:rgb(252, 168, 137);
+        color: green;
+      }
+    </style>
+
+    <h1>COVID-19 Total Cases</h1>
+
+    <div class="data">
+      <label for="countryInput">Enter Country: </label>
+      <input type="text" id="countryInput" placeholder="Enter country name" />
+      <button onclick="fetchCovidData()"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+
+    <div class="info">
+      <h2>Total Cases: <span id="totalCases">N/A</span></h2>
+    </div>
+
+    <script>
+      const apiKey = "S70um7ng1x1J4cHb/H0i1w==2jlik8kDLlAnz1Yy";
+
+      function fetchCovidData() {
+        const country = document.getElementById("countryInput").value.trim();
+
+        // Check if the input is not empty
+        if (!country) {
+          alert("Please enter a country name");
+          return;
+        }
+
+        const url = `https://api.api-ninjas.com/v1/covid19?country=${country}`;
+        const options = {
+          method: "GET",
+          headers: {
+            "X-Api-Key": apiKey,
+          },
+        };
+
+        fetch(url, options)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Country not found or failed to fetch data");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            // Check if the response contains data for the country
+            if (data && data.length > 0) {
+              const countryData = data[0];
+              const cases = countryData.cases;
+
+              // Get the most recent date (last key in the cases object)
+              const dates = Object.keys(cases);
+              const latestDate = dates[dates.length - 1];
+              const totalCases = cases[latestDate].total;
+
+              document.getElementById("totalCases").textContent = totalCases
+                ? totalCases
+                : "Data not available";
+            } else {
+              document.getElementById("totalCases").textContent =
+                "No data available for this country";
+            }
+          })
+          .catch((error) => {
+            document.getElementById("totalCases").textContent =
+              "Error: " + error.message;
+          });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+<script>
+  sessionStorage.setItem("name", "harry");
+
+  let name = sessionStorage.getItem("name");
+
+  console.log(name);
+
+  sessionStorage.setItem("age", "19");
+  sessionStorage.setItem('name','sahil')
+
+  window.onstorage = (e)=> {
+    alert("changed");
+  };
+
+</script>

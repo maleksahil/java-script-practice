@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>movie</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #container {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            background-color: #949191;
+            padding: 50px;
+        }
+
+        .card {
+            width: 250px;
+            height: 350px;
+            border: 1px solid #ccc;
+            /* background-color: white; */
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .card>img {
+            width: 100%;
+            height: 220px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+
+    </div>
+
+    <script>
+
+
+        async function get() {
+          try {
+            
+        
+            const res = await fetch('https://api.themoviedb.org/3/trending/all/day?language=en-US', {
+              method: 'GET',
+              headers: {
+                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYWUzMWY4MmMxOTYzYmUwMTNmNmE0ZjRmN2E2ZDAxZCIsIm5iZiI6MTczMzM5MTgzMy4wNjcwMDAyLCJzdWIiOiI2NzUxNzVkOWYwNDNiZDhhNjAyNzFhOGIiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.xiA9GjExHJENB5eA0HmU-i3vMSq3zguqOOkOmgbxYuw' 
+              }
+            });
+        
+            const final = await res.json();
+            const movies = final.results;
+        
+
+            console.log(movies);
+        
+
+        
+            movies.forEach(movie => {
+
+                const container = document.getElementById('container');
+                
+              const div = document.createElement('div');
+              div.className = 'card';
+        
+              const newTitle = movie.title || movie.original_name; // Use short-circuiting for title
+        
+              div.innerHTML = `
+                <img src='https://image.tmdb.org/t/p/w500${movie.poster_path}'>
+                <h3> ${newTitle} </h3>
+                <p> Release date : ${movie.release_date} </p>
+              `;
+        
+              container.appendChild(div);
+            });
+          } catch (err) {
+            console.error(err);
+          }
+        }
+        
+        get(); // Call the function
+
+
+        </script>
+
+
+
+    <!-- <script>
+        const apiKey = '0ae31f82c1963be013f6a4f4f7a6d01d'; // Replace with your actual API key
+
+        const options = {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json', // Content type the API expects
+                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwYWUzMWY4MmMxOTYzYmUwMTNmNmE0ZjRmN2E2ZDAxZCIsIm5iZiI6MTczMzM5MTgzMy4wNjcwMDAyLCJzdWIiOiI2NzUxNzVkOWYwNDNiZDhhNjAyNzFhOGIiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.xiA9GjExHJENB5eA0HmU-i3vMSq3zguqOOkOmgbxYuw' // Include the API key with Bearer token
+            }
+        };
+
+        fetch('https://api.themoviedb.org/3/trending/all/day?language=en-US', options)
+            .then(res => res.json())
+            .then(res => console.log(res))
+            .catch(err => console.error(err));  
+    </script> -->
+
+
+</body>
+
+</html>

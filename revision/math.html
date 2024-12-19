@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meth function</title>
+  </head>
+  <body>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+        body{
+            width: 100%;
+            height: 100vh;
+            border: 1px solid black;
+            display: grid;
+            place-items: center;
+        }
+        p{
+            font-size: 5rem;
+        }
+    </style>
+    <p id="dmeo"></p>
+
+    <script>
+      function display() {
+
+        let p = document.getElementById("dmeo");
+
+        let num = Math.floor(Math.random() * 10);
+        p.innerHTML = num
+        console.log(num);
+
+      }
+
+      setInterval(()=>{
+           display()
+        },1000)
+    </script>
+  </body>
+</html>

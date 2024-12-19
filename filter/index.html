@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>filter</title>
+  </head>
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #ccc;
+      }
+
+      .search {
+        position: absolute;
+        top: 20px;
+        left: 30%;
+      }
+
+      .container {
+        min-height: 100vh;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 100px;
+      }
+
+      .card {
+        background-color: white;
+        width: 200px;
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        border-radius: 20px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        font-size: 2rem;
+      }
+    </style>
+
+    <div class="search">
+      <label for="search">search</label>
+      <input type="text" id="search" />
+      <button type="submit">search</button>
+    </div>
+    <div class="container"></div>
+
+    <script>
+      let btn = document.querySelector("button");
+
+      btn.addEventListener("click", () => {
+
+        let input = document.querySelector("input").value;
+
+        async function get() {
+          let url = await fetch("http://localhost:3000/user");
+          let final = await url.json();
+
+          console.log(final);
+
+          let employee = final.filter((person) => person.job === `${input}`);
+
+          console.log(employee);
+
+          employee.forEach((val) => {
+            let container = document.querySelector(".container");
+
+            let card = document.createElement("div");
+            card.classList.add("card");
+
+            container.appendChild(card);
+
+            let p1 = document.createElement("p");
+            p1.textContent = val.name;
+
+            card.appendChild(p1);
+
+            let p2 = document.createElement("p");
+            p2.textContent = val.job;
+
+            card.appendChild(p2);
+
+            let p3 = document.createElement("p");
+            p3.textContent = val.age;
+
+            card.appendChild(p3);
+          });
+        }
+
+        get()
+      });
+    </script>
+  </body>
+</html>
